@@ -33,6 +33,8 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
