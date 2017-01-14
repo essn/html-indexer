@@ -4,6 +4,14 @@ class Page < ApplicationRecord
 
   before_save :store_body
 
+  def title
+    parsed_body.title
+  end
+
+  def get_elements(element)
+    parsed_body.css(element).map do |item|
+      Element.new(item)
+    end
   end
 
   private
@@ -14,5 +22,9 @@ class Page < ApplicationRecord
 
   def page_body
     @_page_body ||= HTTParty.get(url).body
+  end
+
+  def parsed_body
+    Nokogiri::HTML(body)
   end
 end
