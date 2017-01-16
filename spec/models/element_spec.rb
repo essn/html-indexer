@@ -1,21 +1,5 @@
 require 'rails_helper'
 
-class DummyNode
-  include Enumerable
-
-  attr_accessor :content, :name, :attributes
-
-  def initialize(options = {})
-    @content = options[:content]
-    @name = options[:name]
-    @attributes = options[:attributes]
-  end
-
-  def each(&block)
-    @attributes.each(&block)
-  end
-end
-
 RSpec.describe Element do
   let(:attributes) do
     { attr1: 'value1', attr2: 'value2' }

@@ -4,6 +4,10 @@ class Page < ApplicationRecord
 
   before_save :store_body
 
+  def has_changed?
+    body != page_body
+  end
+
   def title
     parsed_body.title
   end
