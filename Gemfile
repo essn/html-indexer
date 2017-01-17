@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'puma', '~> 3.0'
-gem 'jbuilder', '~> 2.5'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'httparty'
@@ -24,15 +23,15 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
   gem 'pry'
 end
 
 group :test do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
 end

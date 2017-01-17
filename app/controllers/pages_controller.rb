@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def show
     page = Page.find_or_create_by(url: url)
 
-    page.save if page.has_changed?
+    page.save if page.changed?
 
     render json: PageSerializer.serialize(page),
            status: 200

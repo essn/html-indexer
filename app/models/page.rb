@@ -4,7 +4,7 @@ class Page < ApplicationRecord
 
   before_save :store_body
 
-  def has_changed?
+  def changed?
     body != page_body
   end
 

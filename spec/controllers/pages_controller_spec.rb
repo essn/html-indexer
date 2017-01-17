@@ -46,7 +46,7 @@ RSpec.describe PagesController, type: :controller do
       context 'page body has changed' do
         before do
           allow_any_instance_of(Page).to receive(
-            :has_changed?
+            :changed?
           ).and_return(true)
         end
 

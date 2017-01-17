@@ -13,4 +13,3 @@ class DummyNode
     @attributes.each(&block)
   end
 end
-
