@@ -1,24 +1,22 @@
-# README
+# HTML Indexing API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple API for indexing information from URLs.
 
-Things you may want to cover:
+## To run app
 
-* Ruby version
+* `bundle install`
 
-* System dependencies
+* `rake db:setup`
 
-* Configuration
+* `rails s -b webrick`
 
-* Database creation
+## To run specs
 
-* Database initialization
+* `rspec spec`
 
-* How to run the test suite
+## Routes
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* GET `/pages/:url`
+  * Get the information for a single URL as JSON
+* GET `/pages`
+  * List information for all URLs as JSON
