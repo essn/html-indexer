@@ -23,10 +23,10 @@ RSpec.describe PagesController, type: :controller do
     ).and_return(elements)
   end
 
-  describe '#show' do
+  describe '#create' do
     def do_request
       VCR.use_cassette('page_body') do
-        get :show, params: { id: url }
+        post :create, params: { url: url }
       end
     end
 
@@ -56,6 +56,12 @@ RSpec.describe PagesController, type: :controller do
           do_request
         end
       end
+
+      it 'returns status 200' do
+        do_request
+
+        expect(response.status).to eq(200)
+      end
     end
 
     context 'page does not exist' do
@@ -74,6 +80,12 @@ RSpec.describe PagesController, type: :controller do
           expect(Page.last.url).to eq(url)
         end
       end
+
+      it 'returns status 201' do
+        do_request
+
+        expect(response.status).to eq(200)
+      end
     end
 
     it 'returns a serialized page object' do
@@ -84,12 +96,6 @@ RSpec.describe PagesController, type: :controller do
       ).to eq(
         PageSerializer.serialize(page)
       )
-    end
-
-    it 'returns status 200' do
-      do_request
-
-      expect(response.status).to eq(200)
     end
   end
 

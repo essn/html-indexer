@@ -16,7 +16,8 @@ Simple API for indexing information from URLs.
 
 ## Routes
 
-* GET `/pages/:url`
-  * Get the information for a single URL as JSON
+* POST `/pages`
+  * Index a URL
+  * PARAMS: url - URL to be indexed
 * GET `/pages`
-  * List information for all URLs as JSON
+  * List information for all indexed URLs as JSON

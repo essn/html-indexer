@@ -9,18 +9,13 @@ class PagesController < ApplicationController
     render json: pages, status: 200
   end
 
-  def show
-    page = Page.find_or_create_by(url: url)
+  def create
+    page = Page.find_or_create_by(url: params[:url])
+    status = 200
 
-    page.save if page.changed?
+    page.save && status = 201 if page.changed?
 
     render json: PageSerializer.serialize(page),
-           status: 200
-  end
-
-  private
-
-  def url
-    params[:id]
+           status: status
   end
 end
